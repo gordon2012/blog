@@ -1,0 +1,26 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "## A CakePHP Tutorial",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "dev": "browser-sync start --no-notify --proxy \"localhost/blog\" --files \"config\" \"src\" \"webroot\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gordon2012/blog.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gordon2012/blog/issues"
+  },
+  "homepage": "https://github.com/gordon2012/blog#readme",
+  "devDependencies": {
+    "browser-sync": "^2.18.13"
+  }
+}

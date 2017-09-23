@@ -1,3 +1,5 @@
+node_modules
+
 # CakePHP specific files #
 ##########################
 /config/app.php
