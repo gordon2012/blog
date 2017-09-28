@@ -60,8 +60,17 @@ class ArticlesController extends AppController
             }
             $this->Flash->error(__('The article could not be saved. Please, try again.'));
         }
-        $this->set(compact('article'));
-        $this->set('_serialize', ['article']);
+        $this->set('article', $article);
+
+        $categories = $this->Articles->Categories->find('treeList');
+        $this->set(compact(/*'article', */'categories'));
+        // $this->set('_serialize', ['article', 'cagetories']);
+
+        $category_names = [];
+        foreach($this->Articles->Categories->find() as $category) {
+            $category_names[$category['id']] = $category['description'];
+        }
+        $this->set('category_names', $category_names);
     }
 
     /**
@@ -75,14 +84,43 @@ class ArticlesController extends AppController
     {
         $article = $this->Articles->get($id);
         if($this->request->is(['post', 'put'])) {
-            $this->Articles->patchEntity($article, $this->request->getData());
+            // $data = array_map(function($k, $v) {
+            //     debug("k: $k | v: $v");
+            //     // $el['category_id'] = intval($el['category_id']);
+            //     return $k;
+            // }, $this->request->getData());
+            // die;
+            // debug($data); die;
+
+            $data = $this->request->getData();
+            $data['category_id'] = intval($data['category_id']);
+
+            // debug($data);// die;
+
+            $this->Articles->patchEntity($article, $data);
             if($this->Articles->save($article)) {
                 $this->Flash->success(__('Your article has been updated.'));
+                // debug($article); die;
                 return $this->redirect(['action'=>'index']);
             }
             $this->Flash->error(__('Unable to update your article'));
         }
         $this->set('article', $article);
+
+        $categories = $this->Articles->Categories->find('treeList');
+        $this->set('categories', $categories);
+
+        $category_names = [];
+        foreach($this->Articles->Categories->find() as $category) {
+            $category_names[$category['id']] = $category['description'];
+        }
+        $this->set('category_names', $category_names);
+        // debug($category_names);
+        // die;
+        // debug($categories); die;
+        // $categories = $this->Articles->Categories->find('treeList');
+        // $this->set(compact('article', 'categories'));
+        // $this->set('_serialize', ['article', 'cagetories']);
     }
 
     /**
