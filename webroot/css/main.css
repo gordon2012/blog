@@ -1,0 +1,98 @@
+/* Reset */
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Flex layout */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+main {
+    flex: 1;
+}
+
+
+/* Header */
+header, footer {
+    background: #2f2f2f;
+    color: whitesmoke;
+}
+
+header {
+    padding: 15px;
+}
+header a,
+header a:hover {
+    color: whitesmoke;
+}
+.brand {
+    font-size: 1.5em;
+}
+.user {
+    font-size: 1.2em;
+    margin-right: 10px;
+}
+
+nav {
+    display: inline;
+}
+nav ul {
+    list-style: none;
+    display: inline;
+}
+nav li {
+    display: inline;
+}
+
+
+/* Footer */
+footer {
+    padding: 15px;
+    text-align: center;
+}
+
+
+/* DEBUG */
+.h {
+    display: none;
+}
+.r {
+    background-color: rgba(255,0,0,0.2) !important;
+}
+.g {
+    background-color: rgba(0,255,0,0.2) !important;
+}
+.b {
+    background-color: rgba(0,0,255,0.2) !important;
+}
+.y {
+    background-color: rgba(255,255,0,0.2) !important;
+}
+.c {
+    background-color: rgba(0,255,255,0.2) !important;
+}
+.m {
+    background-color: rgba(255,0,255,0.2) !important;
+}
+.rb {
+    border: 3px solid red;
+}
+.gb {
+    border: 3px solid green;
+}
+.bb {
+    border: 3px solid blue;
+}
+.yb {
+    border: 3px solid yellow;
+}
+.cb {
+    border: 3px solid cyan;
+}
+.mb {
+    border: 3px solid magenta;
+}
