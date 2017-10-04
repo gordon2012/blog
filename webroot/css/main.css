@@ -16,11 +16,9 @@ main {
 }
 .flex-c {
     display: flex;
-    /* flex-direction: row; */
     justify-content: center;
 }
 .flex-i {
-    /* flex: 1; */
     flex-basis: 1000px;
 }
 
