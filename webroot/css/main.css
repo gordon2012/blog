@@ -14,6 +14,15 @@ body {
 main {
     flex: 1;
 }
+.flex-c {
+    display: flex;
+    /* flex-direction: row; */
+    justify-content: center;
+}
+.flex-i {
+    /* flex: 1; */
+    flex-basis: 1000px;
+}
 
 
 /* Header */
@@ -21,8 +30,7 @@ header, footer {
     background: #2f2f2f;
     color: whitesmoke;
 }
-
-header {
+header .flex-i {
     padding: 15px;
 }
 header a,
@@ -36,7 +44,6 @@ header a:hover {
     font-size: 1.2em;
     margin-right: 10px;
 }
-
 nav {
     display: inline;
 }
@@ -50,7 +57,7 @@ nav li {
 
 
 /* Footer */
-footer {
+footer .flex-i {
     padding: 15px;
     text-align: center;
 }
