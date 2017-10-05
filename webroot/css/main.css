@@ -17,6 +17,7 @@ main {
 .flex-c {
     display: flex;
     justify-content: center;
+    padding: 0 30px;
 }
 .flex-i {
     flex-basis: 1000px;
@@ -28,8 +29,8 @@ header, footer {
     background: #2f2f2f;
     color: whitesmoke;
 }
-header .flex-i {
-    padding: 15px;
+header > div {
+    padding: 15px 0;
 }
 header a,
 header a:hover {
