@@ -7,13 +7,15 @@
         <?= $this->fetch('title') ?>
     </title>
     <?= $this->Html->meta('icon') ?>
+    <?= $this->fetch('meta') ?>
 
     <?= $this->Html->css('bootstrap.min.css') ?>
     <?= $this->Html->css('main.css') ?>
-
-    <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
+
+    <?= $this->Html->script('marked-0.3.6.min.js') ?>
     <?= $this->fetch('script') ?>
+
 </head>
 <body>
     <header class="flex-c">
@@ -44,5 +46,8 @@
             Copyright <?= date('Y') ?> Gordon Doskas
         </div>
     </footer>
+
+
+
 </body>
 </html>

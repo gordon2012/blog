@@ -39,7 +39,12 @@ class ArticlesController extends AppController
             'contain' => []
         ]);
 
-        $this->set('article', $article);
+        $this->loadModel('Users');
+        $author = $this->Users->get($article->user_id, [
+            'contain' => []
+        ])->username;
+
+        $this->set(compact('article', 'author'));
         $this->set('_serialize', ['article']);
     }
 
