@@ -3,6 +3,8 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 
+$helpers = ['Time'];
+
 /**
  * Articles Controller
  *
@@ -12,7 +14,6 @@ use App\Controller\AppController;
  */
 class ArticlesController extends AppController
 {
-
     /**
      * Index method
      *
@@ -22,8 +23,18 @@ class ArticlesController extends AppController
     {
         $articles = $this->paginate($this->Articles);
 
-        $this->set(compact('articles'));
-        $this->set('_serialize', ['articles']);
+        $this->loadModel('Users');
+        $_authors = $this->Users
+            ->find()
+            ->select(['id', 'username'])
+            ->toArray();
+        $authors = [];
+        foreach($_authors as $author) {
+            $authors[$author['id']] = $author['username'];
+        }
+
+        $this->set(compact('articles', 'authors'));
+        $this->set('_serialize', ['articles', 'authors']);
     }
 
     /**

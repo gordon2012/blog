@@ -2,23 +2,27 @@
 
 <?= $this->Html->link('Add Article', ['action'=>'add']) ?>
 
-<table>
-    <tr>
-        <th>Id</th>
-        <th>Title</th>
-        <th>Created</th>
-        <th>Actions</th>
-    </tr>
+<br>
 
-    <?php foreach($articles as $article): ?>
-        <tr>
-            <td><?= $article->id ?></td>
-            <td><?= $this->Html->link($article->title, ['action'=>'view', $article->id]) ?></td>
-            <td><?= $article->created->format(DATE_RFC850) ?></td>
-            <td>
-                <?= $this->Form->postLink('Delete', ['action'=>'delete', $article->id], ['confirm'=>'Are you sure?']) ?>
-                <?= $this->Html->link('Edit', ['action'=>'edit', $article->id]) ?>
-            </td>
-        </tr>
-    <?php endforeach; ?>
-</table>
+<?php foreach($articles as $article): ?>
+    <div class="col-sm-6 col-md-4 col-lg-3" style="padding: 5px 15px;">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4><?= $article->title ?></h4>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-8 col-xs-offset-2 col-sm-12 col-sm-offset-0">
+                    <img src="http://placehold.it/200x100" alt="" style="width: 100%;">
+                </div>
+            </div>
+
+            <div class="panel-body">
+                <h6 class="span-wrap">
+                    <?= $this->Time->nice($article->created) ?>
+                    <span class="span-right"><?= $authors[$article->user_id] ?></span>
+                </h6>
+            </div>
+        </div>
+    </div>
+<?php endforeach; ?>
