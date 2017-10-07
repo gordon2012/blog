@@ -12,15 +12,19 @@ class UsersController extends AppController {
     }
 
     public function index() {
-        $this->set('users', $this->Users->find('all'));
+        $this->set('users', $this->Users->find()->all());
     }
 
-    public function view($id) {
-        $user = $this->Users->get($id);
+    public function view($id=null) {
+        $user = $this->Users->findById($id)->first();
+        if(empty($user)) {
+            $this->Flash->error(__('User not found'));
+            return $this->redirect(['action'=>'index']);
+        }
         $this->set(compact('user'));
     }
 
-    public function add () {
+    public function add() {
         $user = $this->Users->newEntity();
         if($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->getData());
@@ -46,5 +50,22 @@ class UsersController extends AppController {
 
     public function logout() {
         return $this->redirect($this->Auth->logout());
+    }
+
+    public function edit($id = null)
+    {
+        $user = $this->Users->get($id);
+
+        if($this->request->is(['post', 'put'])) {
+            $data = $this->request->getData();
+            $this->Users->patchEntity($user, $data);
+            if($this->Users->save($user)) {
+                $this->Flash->success(__('The user has been updated.'));
+                return $this->redirect(['action'=>'index']);
+            }
+            $this->Flash->error(__('Unable to update user.'));
+        }
+
+        $this->set(compact('user'));
     }
 }

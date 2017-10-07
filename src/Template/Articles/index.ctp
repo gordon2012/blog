@@ -20,7 +20,7 @@
             <div class="panel-body">
                 <h6 class="span-wrap">
                     <?= $this->Time->nice($article->created) ?>
-                    <span class="span-right"><?= $authors[$article->user_id] ?></span>
+                    <span class="span-right"><?= $authors[$article->user_id]['first_name'] . ' ' . $authors[$article->user_id]['last_name'] ?></span>
                 </h6>
             </div>
         </div>

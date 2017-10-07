@@ -26,11 +26,15 @@ class ArticlesController extends AppController
         $this->loadModel('Users');
         $_authors = $this->Users
             ->find()
-            ->select(['id', 'username'])
+            ->select(['id', 'username', 'first_name', 'last_name'])
             ->toArray();
         $authors = [];
         foreach($_authors as $author) {
-            $authors[$author['id']] = $author['username'];
+            $authors[$author['id']] = [
+                'username'=>$author['username'],
+                'first_name'=>$author['first_name'],
+                'last_name'=>$author['last_name']
+            ];
         }
 
         $this->set(compact('articles', 'authors'));
