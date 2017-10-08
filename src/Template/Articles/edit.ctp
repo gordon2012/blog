@@ -1,13 +1,29 @@
-<h1>Edit Article</h1>
+<?= $this->Form->create($article, ['class'=>'form-horizontal']) ?>
+    <div class="panel panel-default" style="margin-top: 30px;">
+        <div class="panel-body">
 
-<pre class="panel">
-    <?php if(false) var_dump($categories->find('all')); ?>
-</pre>
+            <div class="form-group">
+                <label for="title" class="col-sm-2 col-sm-offset-0 control-label text-right">Title</label>
+                <div class="col-sm-9">
+                    <?= $this->Form->control('title', ['label'=>false, 'class'=>'form-control']) ?>
+                </div>
+            </div>
 
-<?= $this->Form->create($article) ?>
-    <?= $this->Form->control('category_id', ['options'=>$category_names, 'empty'=>'--Uncategorized--']); ?>
-    <?= null//$this->Form->control('category_id'); ?>
-    <?= $this->Form->control('title') ?>
-    <?= $this->Form->control('body', ['rows'=>'3']) ?>
-    <?= $this->Form->button(__('Save Article')) ?>
+            <div class="form-group">
+                <label for="category_id" class="col-sm-2 col-sm-offset-0 control-label text-right">Category</label>
+                <div class="col-sm-9">
+                    <?= $this->Form->select('category_id', $category_names, ['empty'=>'--Uncategorized--', 'class'=>'form-control']) ?>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="bodyx" class="control-label" style="padding: 0 0 5px 15px;">Body</label>
+        <div class="col-xs-12">
+            <?= $this->Form->control('body', ['rows'=>'15', 'label'=>false, 'class'=>'form-control']) ?>
+        </div>
+    </div>
+
+    <?= $this->Form->button(__('Save'), ['class'=>'btn btn-lg btn-success']) ?>
 <?= $this->Form->end() ?>
