@@ -9,6 +9,7 @@
     <?= $this->Html->meta('icon') ?>
     <?= $this->fetch('meta') ?>
 
+    <?= $this->Html->css('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css') ?>
     <?= $this->Html->css('bootstrap.min.css') ?>
     <?= $this->Html->css('main.css') ?>
     <?= $this->fetch('css') ?>

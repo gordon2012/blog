@@ -73,6 +73,29 @@ footer .flex-i {
 }
 
 
+/* Article index */
+
+.article-fc {
+    display: flex;
+    flex-flow: row wrap;
+    margin-top: 30px;
+}
+.article-fi {
+    flex-basis: 33.33%;
+    padding: 0 15px;
+}
+@media(max-width: 992px) {
+    .article-fi {
+        flex-basis: 50%;
+    }
+}
+@media(max-width: 768px) {
+    .article-fi {
+        flex-basis: 100%;
+    }
+}
+
+
 /* DEBUG */
 .h {
     display: none;
